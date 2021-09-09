@@ -2,9 +2,12 @@
 require("dotenv").config();
 
 const express = require("express");
+const cors = require("cors");
 const qs = require("querystring");
-const app = express();
 const axios = require("axios");
+
+const app = express();
+app.use(cors());
 
 // local map to save
 // Spotify access token
@@ -45,7 +48,7 @@ const redirectResolveCallback = (req, res) => {
     );
 };
 
-const tokenRequestCallback = (req, res) => {
+const tokenRequestCallback = (_, res) => {
   res.send(localStore.session || { error: "no data available" }).status(200);
 };
 
