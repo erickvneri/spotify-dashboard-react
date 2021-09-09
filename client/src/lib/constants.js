@@ -8,6 +8,8 @@ const constants = {
   serverUrl: env.SERVER_URL,
   serverClientId: env.SERVER_CLIENT_ID,
   serverClientSecret: env.SERVER_CLIENT_SECRET,
+  // Server Paths
+  serverTokenPath: "/token",
 
   // Spotify OAuth base url
   // and /authorize endpoint
