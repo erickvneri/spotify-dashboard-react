@@ -29,6 +29,14 @@ const instance = axios.create({
   },
 });
 
+/*
+ * Authorize resolver which
+ * handles @code and redeem
+ * it for API access token.
+ *
+ * After Code-flow is completed,
+ * server will redirect to client.
+ * */
 const redirectResolveCallback = (req, res) => {
   return instance
     .post(
@@ -41,13 +49,17 @@ const redirectResolveCallback = (req, res) => {
     )
     .then((response) => {
       localStore.session = response?.data;
-      res.send("<h1>You can go back to your dashboard.</h1>").status(200);
+      res.redirect(`${process.env.CLIENT_URL}${process.env.CLIENT_RESOLVER}`);
     })
     .catch((err) =>
       res.send(`<h1>${err?.response?.data?.error_description}</h1>`)
     );
 };
 
+/*
+ * Returns
+ * @accessToken for Spotify API
+ * */
 const tokenRequestCallback = (_, res) => {
   res.send(localStore.session || { error: "no data available" }).status(200);
 };
