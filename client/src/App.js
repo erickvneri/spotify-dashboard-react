@@ -1,42 +1,49 @@
-import { Suspense, lazy } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
-
+import { Suspense, lazy } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 // Pages
-import LoginPage from "./pages/LoginPage";
+import OAuthPage from "./pages/OAuthPage";
 import Loading from "./pages/Loading";
-import MainPage from "./pages/MainPage";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Route exact strict path="/">
-            <Page children={<LoginPage />}></Page>
+          {/* Root path */}
+          <Route exact strict path="/oauth">
+            <Page children={<OAuthPage />}></Page>
           </Route>
 
-          <Route exact strict path="/oauth">
-            <Page fallback={<Loading />}>{<LazyPage />}</Page>
+          {/* OAuth path */}
+          <Route exact strict path="/home">
+            <Page fallback={<Loading />}>{<LazyHome />}</Page>
           </Route>
+
+          <Redirect to="/home" />
         </Switch>
       </Router>
     </div>
   );
-}
+};
 
-function Page({ children, fallback }) {
+const Page = ({ children, fallback }) => {
   return (
     <div className="Page">
       <Suspense fallback={fallback || null}>{children}</Suspense>
     </div>
   );
-}
+};
 
-const LazyPage = lazy(
+const LazyHome = lazy(
   () =>
-    new Promise((resolve, reject) =>
-      setTimeout(() => resolve(import("./pages/MainPage")), 3 * 1000)
+    new Promise((resolve, _) =>
+      setTimeout(() => resolve(import("./pages/Home")), 2 * 1000)
     )
 );
 

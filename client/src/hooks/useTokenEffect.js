@@ -11,7 +11,7 @@ const useTokenEffect = (state, setState) => {
           sessionStorage.setItem("spotifyToken", res.data.access_token);
           setState(localStorage.getItem("spotifyToken"));
         })
-        .catch((err) => console.log(err));
+        .catch((err) => alert(err));
     } else {
       setState(token);
     }

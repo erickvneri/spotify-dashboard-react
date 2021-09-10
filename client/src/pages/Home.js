@@ -1,9 +1,6 @@
 import { useState } from "react";
 import "../App.css";
 
-// ApiService
-import ApiService from "../services/SpotifyAuthentication";
-
 // Custom hooks
 import useTokenEffect from "../hooks/useTokenEffect";
 
@@ -12,7 +9,13 @@ const MainPage = () => {
 
   useTokenEffect(token, setToken);
 
-  return <header className="App-header">{token}</header>;
+  return (
+    <header className="App-header">
+      Hello world!
+      <br />
+      token: {token ? token : "[TODO: TOAST MESSAGE]"}
+    </header>
+  );
 };
 
 export default MainPage;

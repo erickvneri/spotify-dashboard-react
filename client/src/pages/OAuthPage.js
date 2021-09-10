@@ -1,5 +1,6 @@
 import logo from "../spotify-logo-png-7053.png";
 import "../App.css";
+import { useHistory } from "react-router";
 
 // Querystring formatter
 import qs from "querystring";
@@ -11,6 +12,7 @@ import constants from "../lib/constants";
 import { Button } from "@material-ui/core";
 
 function LoginPage() {
+  // Spotify OAuth2.0 page URL
   const loginRedirectCallback = () => {
     const authorizeUrl =
       `${constants.spotifyOAuthUrl}${constants.spotifyAuthorizeEP}?`.concat(
@@ -21,7 +23,9 @@ function LoginPage() {
           scopes: constants.spotifyOAuthScopes,
         })
       );
-    window.open(authorizeUrl);
+
+    // Open new tab to authenticate
+    window.location.href = authorizeUrl;
   };
 
   return (
