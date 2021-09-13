@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import { Suspense, lazy } from "react";
 import {
   BrowserRouter as Router,
@@ -6,6 +6,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+
 // Pages
 import OAuthPage from "./pages/OAuthPage";
 import Loading from "./pages/Loading";

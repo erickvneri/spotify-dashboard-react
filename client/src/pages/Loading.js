@@ -1,5 +1,5 @@
 import logo from "../spotify-logo-png-7053.png";
-import "../App.css";
+import "../App.scss";
 
 const Loading = () => {
   return (

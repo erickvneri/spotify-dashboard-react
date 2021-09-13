@@ -1,6 +1,5 @@
 import logo from "../spotify-logo-png-7053.png";
-import "../App.css";
-import { useHistory } from "react-router";
+import "../App.scss";
 
 // Querystring formatter
 import qs from "querystring";
@@ -9,10 +8,9 @@ import qs from "querystring";
 import constants from "../lib/constants";
 
 // UI Material Components
-import { Button } from "@material-ui/core";
+import { Button, Link } from "@material-ui/core";
 
 function LoginPage() {
-  // Spotify OAuth2.0 page URL
   const loginRedirectCallback = () => {
     const authorizeUrl =
       `${constants.spotifyOAuthUrl}${constants.spotifyAuthorizeEP}?`.concat(
@@ -28,6 +26,10 @@ function LoginPage() {
     window.location.href = authorizeUrl;
   };
 
+  const authorRedirectCallback = () => {
+    window.open("https://github.com/erickvneri");
+  };
+
   return (
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
@@ -36,7 +38,10 @@ function LoginPage() {
         <br />
         <sub>
           {" "}
-          by <a href="https://github.com/erickvneri">erickvneri</a>
+          by{" "}
+          <Link color={"primary"} onClick={authorRedirectCallback}>
+            {"erickvneri"}
+          </Link>
         </sub>
       </p>
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../App.css";
+import "../App.scss";
 
 // Custom hooks
 import useTokenEffect from "../hooks/useTokenEffect";
