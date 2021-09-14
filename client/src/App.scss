@@ -1,10 +1,10 @@
 $dark-main: #262626;
 
-.App {
+.app-container {
   text-align: center;
 }
 
-.App-logo {
+.logo-main {
   height: 40vmin;
   pointer-events: none;
 }
@@ -15,7 +15,7 @@ $dark-main: #262626;
   }
 }
 
-.App-header {
+.page-container {
   align-items: center;
   background-color: $dark-main;
   color: white;

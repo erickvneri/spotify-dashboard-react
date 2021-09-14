@@ -13,7 +13,7 @@ import Loading from "./pages/Loading";
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="app-container">
       <Router>
         <Switch>
           {/* Root path */}

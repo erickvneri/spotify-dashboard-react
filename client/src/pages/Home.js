@@ -4,18 +4,18 @@ import "../App.scss";
 // Custom hooks
 import useTokenEffect from "../hooks/useTokenEffect";
 
-const MainPage = () => {
+const Home = () => {
   const [token, setToken] = useState("");
 
   useTokenEffect(token, setToken);
 
   return (
-    <header className="App-header">
+    <header className="page-container">
       Hello world!
       <br />
-      token: {token ? token : "[TODO: TOAST MESSAGE]"}
+      message: {token ? token : "No session token granted"}
     </header>
   );
 };
 
-export default MainPage;
+export default Home;

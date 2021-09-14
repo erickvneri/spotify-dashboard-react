@@ -31,8 +31,8 @@ function LoginPage() {
   };
 
   return (
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
+    <header className="page-container">
+      <img src={logo} className="logo-main" alt="Spotify logo" />
       <p>
         Spotify personal dashboard.
         <br />

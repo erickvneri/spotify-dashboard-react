@@ -3,7 +3,7 @@ import "../App.scss";
 
 const Loading = () => {
   return (
-    <header className="App-header">
+    <header className="page-container">
       <img src={logo} className="App-logo" alt="logo" />
       <p>
         We're setting all up for you...
