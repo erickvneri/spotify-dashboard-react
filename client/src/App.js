@@ -7,6 +7,8 @@ import {
   Redirect,
 } from "react-router-dom";
 
+import endpoint from "./lib/endpoint";
+
 // Pages
 import OAuthPage from "./pages/OAuthPage";
 import Loading from "./pages/Loading";
@@ -17,16 +19,16 @@ const App = () => {
       <Router>
         <Switch>
           {/* Root path */}
-          <Route exact strict path="/oauth">
+          <Route exact strict path={endpoint.OAUTH}>
             <Page children={<OAuthPage />}></Page>
           </Route>
 
           {/* OAuth path */}
-          <Route exact strict path="/home">
+          <Route exact strict path={endpoint.HOME}>
             <Page fallback={<Loading />}>{<LazyHome />}</Page>
           </Route>
 
-          <Redirect to="/home" />
+          <Redirect to={endpoint.HOME} />
         </Switch>
       </Router>
     </div>

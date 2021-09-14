@@ -1,6 +1,9 @@
 import { useHistory } from "react-router";
 import { useEffect } from "react";
+
 import ApiService from "../services/ApiService";
+
+import endpoint from "../lib/endpoint";
 
 const useTokenEffect = (state, setState) => {
   const redirect = useHistory().push;
@@ -15,7 +18,7 @@ const useTokenEffect = (state, setState) => {
         })
         .catch((err) => {
           alert(err);
-          redirect("/oauth");
+          redirect(endpoint.OAUTH);
         });
     } else {
       setState(token);

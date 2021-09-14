@@ -35,6 +35,8 @@ const constants = {
   spotifyOAuthScopes: env.SPOTIFY_OAUTH_SCOPES,
 
   // TODO: fill Spotify API constants
+  // author github page
+  author: "https://github.com/erickvneri",
 };
 
 export default constants;

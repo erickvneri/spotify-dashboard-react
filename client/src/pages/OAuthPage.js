@@ -27,7 +27,7 @@ function LoginPage() {
   };
 
   const authorRedirectCallback = () => {
-    window.open("https://github.com/erickvneri");
+    window.open(constants.author);
   };
 
   return (
