@@ -1,6 +1,10 @@
 import logo from "../spotify-logo-png-7053.png";
 import "../App.scss";
 
+// Context
+import { useContext } from "react";
+import { ThemeContext } from "../ThemeContext";
+
 // Querystring formatter
 import qs from "querystring";
 
@@ -10,7 +14,9 @@ import constants from "../lib/constants";
 // UI Material Components
 import { Button, Link } from "@material-ui/core";
 
-function LoginPage() {
+const OAuthPage = () => {
+  const theme = useContext(ThemeContext);
+
   const loginRedirectCallback = () => {
     const authorizeUrl =
       `${constants.spotifyOAuthUrl}${constants.spotifyAuthorizeEP}?`.concat(
@@ -31,7 +37,10 @@ function LoginPage() {
   };
 
   return (
-    <header className="page-container">
+    <header
+      className="page-container"
+      style={{ backgroundColor: theme.background, color: theme.color }}
+    >
       <img src={logo} className="logo-main" alt="Spotify logo" />
       <p>
         Spotify personal dashboard.
@@ -55,6 +64,6 @@ function LoginPage() {
       </Button>
     </header>
   );
-}
+};
 
-export default LoginPage;
+export default OAuthPage;
